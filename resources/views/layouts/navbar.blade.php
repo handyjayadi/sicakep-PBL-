@@ -4,8 +4,8 @@
 <div class="content">
 
 <nav class="navbar navbar-expand navbar-light bg-white topbar  static-top shadow">
-    <img width="50" src="../images/BPMP Logo.jpg" alt="Logo 1" class="logo  ml-3">
-    <img width="50" src="../images/tutwurihandayani.png" alt="Logo 1" class="ml-3 ">
+    <img width="50" src="{{ URL::to('/') }}/images/BPMP Logo.jpg" alt="Logo 1" class="logo  ml-3">
+    <img width="50" src="{{ URL::to('/') }}/images/tutwurihandayani.png" alt="Logo 1" class="ml-3 ">
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>

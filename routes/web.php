@@ -53,18 +53,26 @@ Route::get('login',function(){
     return view('login',['judul'=>'Sign-In']);
 })->name('login')->middleware('guest');
 
-Route::get('userdata',[UserController::class,'index'])->middleware(['auth']);
+// Route::get('userdata',[UserController::class,'index'])->middleware(['auth']);
 //user store
-Route::post('userdata',[UserController::class,'store'])->name('storeuser');
+// Route::post('userdata',[UserController::class,'store'])->name('storeuser');
 //user edit
-Route::get('edituser/{id}',[UserController::class,'editV'])->middleware('auth')->name('edituser');
+// Route::get('edituser/{id}',[UserController::class,'editV'])->middleware('auth')->name('edituser');
 //edit user
-Route::post('edituser/{id}',[UserController::class,'edit'])->name('edituser1');
+// Route::post('edituser/{id}',[UserController::class,'edit'])->name('updateuser');
 //editpass defined
-Route::post('edituser/{id}',[UserController::class,'editpass'])->name('editpass');
-
+// Route::post('edituser/{id}',[UserController::class,'editpass'])->name('editpass');
 //deleteuser defined
 Route::post('edituser/{id}',[UserController::class,'deleteuser'])->name('deleteuser');
+
+Route::controller(UserController::class)->group(function() {
+    Route::get('userdata', 'index');
+    Route::post('store/user', 'store')->name('storeuser');
+    Route::get('edit/user/{id}', 'editV' )->name('edituser');
+    Route::post('update/user/{id}', 'edit')->name('updateuser');
+    Route::post('update/pass/{id}', 'editpass')->name('updatepass');
+    Route::post('delete/user/{id}', 'deleteuser')->name('deleteuser');
+})->middleware('auth');
 
 
 

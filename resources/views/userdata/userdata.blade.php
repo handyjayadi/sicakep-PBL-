@@ -55,7 +55,7 @@
                         <td>{{$u->bidang}}</td>
                         <td>{{$u->updated_at->diffForHumans()}}</td>
                         <td>
-                            <a href="{{url('edituser',$u->id)}}" class="btn btn-primary mr-3">
+                            <a href="{{route('edituser',$u->id)}}" class="btn btn-primary mr-3">
                             <i class="fas fa-edit"></i>
                             </a>
                            
