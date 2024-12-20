@@ -11,7 +11,7 @@
 
                         <div class="card-body">
                             <div class="list-group">
-                                <form method="post" action="{{route('edituser',$user->id)}}">
+                                <form method="post" action="{{route('edituser1',$user->id)}}">
                                 @csrf
                                     <div class="mb-3">
                                         <label for="namaKegiatan" class="form-label">Username</label>
@@ -55,7 +55,7 @@
 
                         <div class="card-body">
                             <div class="list-group">
-                                <form method="post" action="{{ route('editpass',$user->id) }}">
+                                <form method="post" action="{{route('editpass',$user->id)}}">
                                 @csrf
                                     <div class="mb-3">
                                         <label for="tanggalKegiatan" class="form-label">password</label>

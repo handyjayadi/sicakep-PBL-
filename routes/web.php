@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
@@ -56,16 +57,21 @@ Route::get('userdata',[UserController::class,'index'])->middleware(['auth']);
 //user store
 Route::post('userdata',[UserController::class,'store'])->name('storeuser');
 //user edit
-Route::get('edituser/{id}',[UserController::class,'editV'])->middleware('auth');
-
-Route::post('edituser/{id}',[UserController::class,'edit'])->name('edituser');
-
-
+Route::get('edituser/{id}',[UserController::class,'editV'])->middleware('auth')->name('edituser');
+//edit user
+Route::post('edituser/{id}',[UserController::class,'edit'])->name('edituser1');
 //editpass defined
 Route::post('edituser/{id}',[UserController::class,'editpass'])->name('editpass');
 
-//edituser defined
+//deleteuser defined
 Route::post('edituser/{id}',[UserController::class,'deleteuser'])->name('deleteuser');
+
+
+
+
+Route::get('datakategori',[kategoriController::class,'index'=>'datakategori']);
+
+
 
 
 require __DIR__.'/auth.php';

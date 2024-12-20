@@ -39,29 +39,24 @@
                     <thead>
                         <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">last update</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Nama Kategori</th>
+                        <th scope="col">pembaruan terakhir</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($user as $u )
+                        @foreach ($kategori as $k )
                         <tr>
                         <th scope="row">1</th>
-                        <td>{{$u->username}}</td>
-                        <td>{{$u->email}}</td>
-                        <td>{{$u->bidang}}</td>
-                        <td>{{$u->updated_at->diffForHumans()}}</td>
+                        <td>{{$k->nama_kategori}}</td>
+                        <td>{{$k->updated_at->diffForHumans()}}</td>
                         <td>
-                            <a href="{{url('edituser',$u->id)}}" class="btn btn-primary mr-3">
+                            <a href="{{url('edituser',$k->id_kategori)}}" class="btn btn-primary mr-3">
                             <i class="fas fa-edit"></i>
                             </a>
                            
                            
-                                <a href="" onclick="return confirm('Apakah anda yakin?')">
-                            <form class="btn btn-danger m-0 p-0" method="post" action="{{route('deleteuser',$u->id)}}">
+                                <a href="" >
+                            <form class="btn btn-danger m-0 p-0" method="post" action="{{route('deleteuser',$k->id_kategori)}}">
                                 @csrf
                                 <button type="submit" class="btn btn-danger mr-3"><i class="fas fa-trash"></i></button>
                             </form>
@@ -92,26 +87,9 @@
                     @csrf
                   
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Masukkan Username" name="username">
+                        <label for="kategori" class="form-label">Nama Kategori</label>
+                        <input type="text" class="form-control" id="kategori" placeholder="Masukkan kategori" name="kategori">
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Masukan Email" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tanggalKegiatan" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="bidang" placeholder="Masukan Password" name="password">
-                    </div>
-                    <label for="tanggalKegiatan" class="form-label">Bidang</label>
-                    <select class="form-select" aria-label="Default select example" name="bidang">
-                        <option value="admin" selected>admin</option>
-                        <option value="dinas">Kepala dinas</option>
-                        <option value="paud">Bidang PAUD</option>
-                        <option value="sdsmp">Bidang SD & SMP</option>
-                        <option value="gtk">Bidang GTK</option>
-                        <option value="pdk">Publikasi Dan Komunikasi</option>
-                    </select>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>

@@ -47,7 +47,7 @@ class UserController extends Controller
         ]);
 
         event(new Registered($user));
-        return redirect('/userdata');
+        return redirect('/userdata')->with('success', 'Data berhasil di tambahkan');
     }
 
     public function edit(Request $request,$id){
@@ -82,6 +82,6 @@ class UserController extends Controller
         if (!$user) {
             return redirect()->back();
         }
-        return redirect('/userdata');
+        return redirect('/userdata')->with('success','data berhasil di hapus!');
     }
 }
