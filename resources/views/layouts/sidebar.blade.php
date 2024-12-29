@@ -61,15 +61,25 @@
             
 
             <!-- Heading -->
+           
+            @if (Auth::user()->bidang != 'admin')
+            @else
             <div class="sidebar-heading">
                 Admin
             </div>
-
             <li class="nav-item">
                 <a class="nav-link" href="/userdata">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>user</span></a>
+                    <span>data user</span></a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/datakategori">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>data kategori</span></a>
+            </li>
+            @endif
+           
 
             
             <hr class="sidebar-divider">

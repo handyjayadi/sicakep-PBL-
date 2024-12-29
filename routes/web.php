@@ -65,6 +65,7 @@ Route::get('login',function(){
 //deleteuser defined
 Route::post('edituser/{id}',[UserController::class,'deleteuser'])->name('deleteuser');
 
+
 Route::controller(UserController::class)->group(function() {
     Route::get('userdata', 'index');
     Route::post('store/user', 'store')->name('storeuser');
@@ -72,12 +73,18 @@ Route::controller(UserController::class)->group(function() {
     Route::post('update/user/{id}', 'edit')->name('updateuser');
     Route::post('update/pass/{id}', 'editpass')->name('updatepass');
     Route::post('delete/user/{id}', 'deleteuser')->name('deleteuser');
-})->middleware('auth');
+})->middleware(['auth','admin']);
 
 
+Route::controller(KategoriController::class)->group(function(){
+    Route::get('datakategori','index');
+    Route::get('edit/kategori/{id_kategori}','editV')->name('editkategori');
+    Route::post('store/kategori','store')->name('storekategori');
+    Route::post('update/kategori{id_kategori}','edit')->name('editkategoris');
+    Route::post('delete/kategori{id_kategori}','delete')->name('deletekategori');
+})->middleware('bidang:admin');
 
 
-Route::get('datakategori',[kategoriController::class,'index'=>'datakategori']);
 
 
 

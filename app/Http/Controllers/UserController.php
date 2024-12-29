@@ -58,7 +58,7 @@ class UserController extends Controller
         
         $user->update($request->all());
 
-        return redirect('/userdata');
+        return redirect('/userdata')->with('success','data berhasil di ubah');
     }
 
     public function editpass(Request $request,$id)
@@ -73,7 +73,7 @@ class UserController extends Controller
         
         $user->update($request->all());
 
-        return redirect('/userdata');
+        return redirect('/userdata')->with('success', 'Password berhasil di ubah');
     }
 
     public function deleteuser(string $id){

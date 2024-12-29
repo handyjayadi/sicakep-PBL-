@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
+    protected $guarded = ['id'];
+
+    protected $primaryKey ='id_kategori';
+
+
     use HasFactory;
 }

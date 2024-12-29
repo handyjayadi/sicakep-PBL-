@@ -26,7 +26,7 @@
                 
                 
                 
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}  <i class="fas fa-user fa-sm fa-fw ml-1 text-gray-500"></i></span>
                 
                 
             </a>

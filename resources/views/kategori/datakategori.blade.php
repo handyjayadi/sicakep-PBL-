@@ -41,6 +41,7 @@
                         <th scope="col">No.</th>
                         <th scope="col">Nama Kategori</th>
                         <th scope="col">pembaruan terakhir</th>
+                        <th scope="col">action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,13 +51,13 @@
                         <td>{{$k->nama_kategori}}</td>
                         <td>{{$k->updated_at->diffForHumans()}}</td>
                         <td>
-                            <a href="{{url('edituser',$k->id_kategori)}}" class="btn btn-primary mr-3">
+                            <a href="{{route('editkategori',$k->id_kategori)}}" class="btn btn-primary mr-3">
                             <i class="fas fa-edit"></i>
                             </a>
                            
                            
-                                <a href="" >
-                            <form class="btn btn-danger m-0 p-0" method="post" action="{{route('deleteuser',$k->id_kategori)}}">
+                                <a href="" onclick="return confirm('anda yakin mau menghapus data?')">
+                            <form class="btn btn-danger m-0 p-0" method="post" action="{{route('deletekategori',$k->id_kategori)}}">
                                 @csrf
                                 <button type="submit" class="btn btn-danger mr-3"><i class="fas fa-trash"></i></button>
                             </form>
@@ -83,12 +84,12 @@
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('storeuser') }}" method="post">
+                <form action="{{ route('storekategori') }}" method="post">
                     @csrf
                   
                     <div class="mb-3">
                         <label for="kategori" class="form-label">Nama Kategori</label>
-                        <input type="text" class="form-control" id="kategori" placeholder="Masukkan kategori" name="kategori">
+                        <input type="text" class="form-control" id="kategori" placeholder="Masukkan kategori" name="namakategori">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
